@@ -1,36 +1,11 @@
-import Database from "better-sqlite3";
-import fs from "fs";
-import path from "path";
+import type { LeaderboardEntry } from "@/types";
 
-let db: Database.Database | null = null;
+const entries: LeaderboardEntry[] = [];
 
-export function getDb(): Database.Database {
-  if (db) return db;
+export function getEntries(): LeaderboardEntry[] {
+  return [...entries].sort((a, b) => b.score - a.score).slice(0, 50);
+}
 
-  const dataDir = path.join(process.cwd(), "data");
-  fs.mkdirSync(dataDir, { recursive: true });
-
-  db = new Database(path.join(dataDir, "leaderboard.db"));
-
-  db.pragma("journal_mode = WAL");
-
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS leaderboard (
-      id TEXT PRIMARY KEY,
-      code_snippet TEXT NOT NULL,
-      language TEXT NOT NULL,
-      persona_name TEXT NOT NULL,
-      persona_icon TEXT NOT NULL,
-      roast_highlight TEXT NOT NULL,
-      score INTEGER NOT NULL,
-      timestamp INTEGER NOT NULL
-    )
-  `);
-
-  db.exec(`
-    CREATE INDEX IF NOT EXISTS idx_leaderboard_timestamp
-    ON leaderboard (timestamp DESC)
-  `);
-
-  return db;
+export function addEntry(entry: LeaderboardEntry) {
+  entries.push(entry);
 }
