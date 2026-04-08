@@ -4,7 +4,7 @@
 
 **让 AI 用各种花式人格狠狠吐槽你的代码**
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
@@ -47,7 +47,7 @@ npm install
 
 ### 2. 配置 API Key
 
-到 [SiliconFlow](https://siliconflow.cn/) 注册获取免费 API Key，然后：
+到 [智谱AI开放平台](https://open.bigmodel.cn/) 注册获取免费 API Key（GLM-4-Flash 免费无限量），然后：
 
 ```bash
 cp .env.example .env.local
@@ -56,7 +56,7 @@ cp .env.example .env.local
 编辑 `.env.local`，填入你的 API Key：
 
 ```
-SILICONFLOW_API_KEY=sk-xxxxxxxxxxxxx
+ZHIPU_API_KEY=your_api_key_here
 ```
 
 ### 3. 启动开发服务器
@@ -71,12 +71,11 @@ npm run dev
 
 | 技术 | 用途 |
 |------|------|
-| [Next.js 16](https://nextjs.org/) | 全栈框架 (App Router) |
+| [Next.js 15](https://nextjs.org/) | 全栈框架 (App Router) |
 | [TypeScript](https://www.typescriptlang.org/) | 类型安全 |
 | [Tailwind CSS 4](https://tailwindcss.com/) | 样式 |
 | [Monaco Editor](https://microsoft.github.io/monaco-editor/) | 代码编辑器 |
-| [SiliconFlow](https://siliconflow.cn/) | LLM API (DeepSeek-V3) |
-| [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) | 排行榜数据库 |
+| [智谱AI](https://open.bigmodel.cn/) | LLM API (GLM-4-Flash) |
 | [html2canvas](https://html2canvas.hertzen.com/) | 分享图片生成 |
 
 ## 项目结构
@@ -98,7 +97,7 @@ src/
 ├── data/
 │   └── personas.ts                 # 预设人格数据
 ├── lib/
-│   └── db.ts                       # SQLite 数据库
+│   └── db.ts                       # 内存排行榜存储
 └── types/
     └── index.ts                    # TypeScript 类型
 ```

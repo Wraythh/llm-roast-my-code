@@ -1,25 +1,25 @@
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.SILICONFLOW_API_KEY;
+  const apiKey = process.env.ZHIPU_API_KEY;
 
   if (!apiKey) {
     return Response.json(
-      { error: "未配置 SILICONFLOW_API_KEY，请在 .env.local 中添加你的 API Key" },
+      { error: "未配置 ZHIPU_API_KEY，请在 .env.local 中添加你的 API Key" },
       { status: 501 }
     );
   }
 
   const { code, language, systemPrompt } = await req.json();
 
-  const response = await fetch("https://api.siliconflow.cn/v1/chat/completions", {
+  const response = await fetch("https://open.bigmodel.cn/api/paas/v4/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: "deepseek-ai/DeepSeek-V3",
+      model: "glm-4-flash",
       stream: true,
       messages: [
         { role: "system", content: systemPrompt },
@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
 
   if (!response.ok || !response.body) {
     return Response.json(
-      { error: "SiliconFlow API 请求失败" },
+      { error: "智谱AI API 请求失败" },
       { status: response.status }
     );
   }
