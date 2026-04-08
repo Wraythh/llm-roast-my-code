@@ -88,7 +88,7 @@ export default function ShareCard({
           </div>
 
           <div className="text-center text-xs text-zinc-600">
-            roast-my-code.vercel.app
+            gleaming-semifreddo-4f0f56.netlify.app
           </div>
         </div>
 
