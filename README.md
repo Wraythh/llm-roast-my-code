@@ -8,9 +8,11 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
-[![Demo](https://img.shields.io/badge/🔴_Live_Demo-点击体验-ff4757?style=flat-square)](https://gleaming-semifreddo-4f0f56.netlify.app/)
-
 *粘贴代码 → 选择人格 → 享受被吐槽的快乐*
+
+<br/>
+
+### 👉 [立即体验 Live Demo](https://gleaming-semifreddo-4f0f56.netlify.app/) 👈
 
 </div>
 
